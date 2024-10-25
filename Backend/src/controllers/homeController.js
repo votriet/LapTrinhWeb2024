@@ -1,5 +1,5 @@
 let getHomePage = (req, res) => {
-return res.send("Hello World")
+return res.render('homepage.ejs')
 }
 module.exports = {
     getHomePage: getHomePage,
