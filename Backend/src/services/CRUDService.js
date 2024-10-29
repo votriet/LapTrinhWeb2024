@@ -1,15 +1,15 @@
- import bcrypt from 'bcryptjs';
- import db from '../models/index';
+import bcrypt from 'bcryptjs';
+import db from '../models/index';
 
 
 const salt = bcrypt.genSaltSync(10);
 
 let createNewUser = async (data) => {
-    let hashPasswordFromBcrypt =await hashUserPassword(data.password);
+    let hashPasswordFromBcrypt = await hashUserPassword(data.password);
     console.log('data from service')
     console.log(data)
     console.log(hashPasswordFromBcrypt)
-     return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
             let hashPasswordFromBcrypt = await hashUserPassword(data.password);
             await db.User.create({
@@ -23,15 +23,15 @@ let createNewUser = async (data) => {
                 roleId: data.roleId,
             })
             resolve('Create a new user succeed');
-        } catch (e) { 
+        } catch (e) {
             reject(e);
-            
+
         }
-     })
+    })
 }
 //hàm mã hóa password lưu trong db
 let hashUserPassword = (password) => {
-    return new Promise( async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
             var hashPassword = await bcrypt.hashSync(password, salt);
             resolve(hashPassword);
@@ -41,19 +41,19 @@ let hashUserPassword = (password) => {
     })
 }
 
-// let getAllUser = (req, res) => {
-//     return new Promise((resolve, reject) => {
-//         try {
-//             let users = db.User.findAll({
-//                 raw : true,
-//             });
-//             resolve(users)
-//         } catch (e) {
-//             reject(e);
-            
-//         }
-//     })
-// }
+let getAllUser = (req, res) => {
+    return new Promise((resolve, reject) => {
+        try {
+            let users = db.User.findAll({
+                raw: true,
+            });
+            resolve(users)
+        } catch (e) {
+            reject(e);
+
+        }
+    })
+}
 // let getUserInfoById = (userId) => {
 //     return new Promise( (resolve, reject) => {
 //         try {
@@ -66,7 +66,7 @@ let hashUserPassword = (password) => {
 //             }else{
 //                 resolve({})
 //             }
-            
+
 //         } catch (e) {
 //             reject(e)
 //         }
@@ -93,7 +93,7 @@ let hashUserPassword = (password) => {
 //             }
 //         } catch (e) {
 //             reject(e);
-            
+
 //         }
 //     })
 // }
@@ -110,14 +110,14 @@ let hashUserPassword = (password) => {
 //             resolve();
 //         } catch (e) {
 //             reject(e);
-            
+
 //         }
 //     })
 // }
 
 module.exports = {
     createNewUser: createNewUser,
-    // getAllUser: getAllUser,
+    getAllUser: getAllUser,
     // getUserInfoById: getUserInfoById,
     // updateUserData: updateUserData,
     // deleteUserById: deleteUserById,
