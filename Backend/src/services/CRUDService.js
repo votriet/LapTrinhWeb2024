@@ -41,37 +41,37 @@ let hashUserPassword = (password) => {
     })
 }
 
-let getAllUser = (req, res) => {
-    return new Promise((resolve, reject) => {
-        try {
-            let users = db.User.findAll({
-                raw: true,
-            });
-            resolve(users)
-        } catch (e) {
-            reject(e);
-
-        }
-    })
-}
-let getUserInfoById = (userId) => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            let user = await db.User.findOne({
-                where: { id: userId },
-                raw: true,
-            });
-            if (user) {
-                resolve(user)
-            } else {
-                resolve({})
-            }
-
-        } catch (e) {
-            reject(e)
-        }
-    })
-}
+// let getAllUser = (req, res) => {
+//     return new Promise((resolve, reject) => {
+//         try {
+//             let users = db.User.findAll({
+//                 raw : true,
+//             });
+//             resolve(users)
+//         } catch (e) {
+//             reject(e);
+            
+//         }
+//     })
+// }
+// let getUserInfoById = (userId) => {
+//     return new Promise( (resolve, reject) => {
+//         try {
+//             let user = db.User.findOne({
+//                 where: {id : userId},
+//                 raw : true,
+//             });
+//             if(user) {
+//                 resolve(user)
+//             }else{
+//                 resolve({})
+//             }
+            
+//         } catch (e) {
+//             reject(e)
+//         }
+//     })
+// }
 
 let updateUserData = (data) => {
     return new Promise(async (resolve, reject) => {
@@ -85,18 +85,18 @@ let updateUserData = (data) => {
                 user.address = data.address;
                 // user.phoneNumber = data.phoneNumber;
 
-                await user.save();
-                let allUsers = await db.User.findAll();
-                resolve(allUsers);
-            } else {
-                resolve();
-            }
-        } catch (e) {
-            // reject(e);
-            console.log(e);
-        }
-    })
-}
+//                 await user.save();
+//                 let allUsers = await db.User.findAll();
+//                 resolve(allUsers);
+//             }else{
+//                 resolve();
+//             }
+//         } catch (e) {
+//             reject(e);
+            
+//         }
+//     })
+// }
 
 // let deleteUserById = (userId) => {
 //     return new Promise(async(resolve, reject) => {
@@ -117,8 +117,8 @@ let updateUserData = (data) => {
 
 module.exports = {
     createNewUser: createNewUser,
-    getAllUser: getAllUser,
-    getUserInfoById: getUserInfoById,
-    updateUserData: updateUserData,
+    // getAllUser: getAllUser,
+    // getUserInfoById: getUserInfoById,
+    // updateUserData: updateUserData,
     // deleteUserById: deleteUserById,
 }
