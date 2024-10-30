@@ -55,9 +55,9 @@ let getAllUser = (req, res) => {
     })
 }
 let getUserInfoById = (userId) => {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
-            let user = db.User.findOne({
+            let user = await db.User.findOne({
                 where: { id: userId },
                 raw: true,
             });
@@ -92,8 +92,8 @@ let updateUserData = (data) => {
                 resolve();
             }
         } catch (e) {
-            reject(e);
-
+            // reject(e);
+            console.log(e);
         }
     })
 }

@@ -58,5 +58,8 @@ let putCRUD = async (req, res) => {
 module.exports = {
     getHomePage: getHomePage,
     getCRUD: getCRUD,
-    postCRUD:postCRUD,
+    postCRUD: postCRUD,
+    displayGetCRUD: displayGetCRUD,
+    getEditCRUD: getEditCRUD,
+    putCRUD: putCRUD
 }
