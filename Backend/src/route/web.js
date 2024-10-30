@@ -52,12 +52,14 @@ let initWebRoutes = (app) => {
     // router.get('/api/get-detail-clinic-by-id', clinicController.getDetailClinicById);
     //router.get('/api/search',searchController.findDoctorNotes);
 
-    // router.get('/',(req,res)=>{
-    //     return res.send('Hello world')
-    // });
-
-    //rest api
+    //api dùng để giao tiếp giữ be và fe
+    //json là 1 object .trong mỗi object có key và value riêng cách nhau với nhau {}
+    // dùng json để chuyển đổi dữ liệu .form chình thông để chuyển đổi là form object .ko phải khai báo class
+    //vd bình thường thì khai báo car= new Car("'Flat','500'") nhưng với json thì chỉ cần
+    //var person={type:'flat',model:'500'}
+    //redux giúp lưu thông tin xuyên suốt app
     return app.use("/", router);
+
 }
 
 module.exports = initWebRoutes;
