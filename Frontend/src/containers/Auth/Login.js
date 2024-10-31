@@ -12,21 +12,30 @@ import { FormattedMessage } from 'react-intl';
 class Login extends Component {
   constructor(props) {
     super(props);
-  
+    this.state = {
+      username: '',
+      password: '',
+      isShowPassword: false,
+      //errMessage: ''
+    }
   }
 
-  // handleOnChangeUsername = (event) => {
-  //   this.setState({ username: event.target.value })
-  // }
+  handleOnChangeUsername = (event) => {
+    this.setState({ username: event.target.value })
+  }
 
-  // handleOnChangePassword = (event) => {
-  //   this.setState({ password: event.target.value })
-  // }
+  handleOnChangePassword = (event) => {
+    this.setState({ password: event.target.value })
+  }
 
-  // handleLogin = async () => {
-  //   this.setState({
-  //     errMessage: ''
-  //   })
+  handleLogin = async () => {
+    console.log('username:', this.state.username, 'password:', this.state.password)
+    console.log('all state', this.state)
+    // this.setState({
+    //   errMessage: ''
+    // })
+
+  }
 
   //   try {
   //     let data = await handleLoginApi(this.state.username, this.state.password);
@@ -55,11 +64,11 @@ class Login extends Component {
   // }
 
 
-  // handleShowHidePassword = () => {
-  //   this.setState({
-  //     isShowPassword: !this.state.isShowPassword
-  //   })
-  // }
+  handleShowHidePassword = () => {
+    this.setState({
+      isShowPassword: !this.state.isShowPassword
+    })
+  }
 
   // handleKeyDown = (event) => {
   //   if (event.key === 'Enter') {
@@ -76,7 +85,9 @@ class Login extends Component {
             <div className="col-12 form-group login-input">
               <label>Username</label>
               <input type="text" className="form-control"
-               
+                placeholder="Enter your username"
+                value={this.state.username}
+                onChange={(event) => this.handleOnChangeUsername(event)}
               />
             </div>
 
@@ -84,13 +95,15 @@ class Login extends Component {
               <label>Password</label>
               <div className="custom-input-password">
                 <input className="form-control"
-                 // type={this.state.isShowPassword ? 'text' : 'password'}
+                   type={this.state.isShowPassword ? 'text' : 'password'}
                   placeholder="Enter your password"
-                
+                  onChange={(event) => this.handleOnChangePassword(event)}
+                  //onKeyDown={(event) => this.handleKeyDown(event)}
+
                 />
-                {/* <span onClick={() => { this.handleShowHidePassword() }} >
-                 // <i className={this.state.isShowPassword ? 'far fa-eye' : 'far fa-eye-slash'}></i>
-                </span> */}
+                <span onClick={() => { this.handleShowHidePassword() }} >
+                  <i className={this.state.isShowPassword ? 'far fa-eye' : 'far fa-eye-slash'}></i>
+                </span>
 
               </div>
 
