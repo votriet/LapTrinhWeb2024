@@ -19,7 +19,7 @@ let getCRUD = (req, res) => {
 let postCRUD = async (req, res) => {
     let message = await CRUDService.createNewUser(req.body);
     console.log(message);
-    return res.render('')
+    return res.send('post crud from server');
 }
 let displayGetCRUD = async (req, res) => {
     let data = await CRUDService.getAllUser();
@@ -71,5 +71,6 @@ module.exports = {
     displayGetCRUD: displayGetCRUD,
     getEditCRUD: getEditCRUD,
     putCRUD: putCRUD,
-    deleteCRUD: deleteCRUD
+    deleteCRUD: deleteCRUD,
+    
 }
