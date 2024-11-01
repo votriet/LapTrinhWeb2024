@@ -34,16 +34,16 @@ class Login extends Component {
 
     try {
       let data = await handleLoginApi(this.state.username, this.state.password);
-        if (data && data.errCode !== 0) {
-          this.setState({
-            errMessage: data.message
-          })
-        }
-        if (data && data.errCode===0) {
-         this.props.userLoginSuccess(data.user)
-          console.log('login succeeds')
-        }
-      
+      if (data && data.errCode !== 0) {
+        this.setState({
+          errMessage: data.message
+        })
+      }
+      if (data && data.errCode === 0) {
+        this.props.userLoginSuccess(data.user)
+       
+      }
+
     } catch (error) {
       if (error.response) {
         if (error.response.data) {
@@ -52,7 +52,7 @@ class Login extends Component {
           })
         }
       }
-      console.log('ltw', error.response)
+      
 
     }
 
