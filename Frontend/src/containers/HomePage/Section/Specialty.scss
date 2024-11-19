@@ -1,0 +1,27 @@
+// .specialty-child{
+//     cursor: pointer;
+
+//     .specialty-name {
+//         padding: 10px 0;
+
+//         &:hover{
+//             color: #45c3d2;
+//         }
+//     }
+// }
+.section-specialty{
+    height: 330px;
+    background: #f5f5f5;
+    border: 1px solid red;
+
+}
+//reset slick slider css
+.slick-prev{
+    border: 1px solid green !important;
+    position: relative !important;
+    left: 0 !important;
+}
+.slick-next{
+    border: 1px solid red !important;
+    right: 0 !important;
+}
