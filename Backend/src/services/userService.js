@@ -25,9 +25,9 @@ let handleUserLogin = (email, password) => {
                 //user is alrealy exist
                 //copmpare password
                 let user = await db.User.findOne({
-                   // attributes: ['id', 'email', 'roleId', 'password', 'firstName', 'lastName'],
-                   attributes: [ 'email', 'roleId', 'password'],
-                   where: { email: email },
+                    // attributes: ['id', 'email', 'roleId', 'password', 'firstName', 'lastName'],
+                    attributes: ['email', 'roleId', 'password'],
+                    where: { email: email },
                     raw: true
                 });
                 if (user) {
@@ -178,7 +178,7 @@ let updateUserData = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
             // if (!data.id || !data.roleId || !data.positionId || !data.gender) {
-                if (!data.id) {
+            if (!data.id) {
                 resolve({
                     errCode: 2,
                     errMessage: 'Missing required parameters'
@@ -196,7 +196,7 @@ let updateUserData = (data) => {
                 user.positionId = data.positionId;
                 user.gender = data.gender;
                 user.phoneNumber = data.phoneNumber;
-                
+
                 if (data.avatar) {
                     user.image = data.avatar
                 }
@@ -218,30 +218,30 @@ let updateUserData = (data) => {
     })
 }
 
-// let getAllCodeService = (typeInput) => {
-//     return new Promise(async (resolve, reject) => {
-//         try {
-//             if (!typeInput) {
-//                 resolve({
-//                     errCode: 1,
-//                     errMessage: 'Missing required paramaters !'
-//                 })
-//             } else {
-//                 let res = {};
-//                 let allcode = await db.Allcode.findAll({
-//                     where: { type: typeInput }
-//                 });
+let getAllCodeService = (typeInput) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!typeInput) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required paramaters !'
+                })
+            } else {
+                let res = {};
+                let allcode = await db.Allcode.findAll({
+                    where: { type: typeInput }
+                });
 
-//                 res.errCode = 0;
-//                 res.data = allcode;
-//                 resolve(res);
-//             }
-//         } catch (e) {
-//             reject(e);
+                res.errCode = 0;
+                res.data = allcode;
+                resolve(res);
+            }
+        } catch (e) {
+            reject(e);
 
-//         }
-//     })
-// }
+        }
+    })
+}
 
 module.exports = {
     handleUserLogin: handleUserLogin,
@@ -249,5 +249,5 @@ module.exports = {
     createNewUser: createNewUser,
     deleteUser: deleteUser,
     updateUserData: updateUserData,
-    // getAllCodeService: getAllCodeService
+    getAllCodeService: getAllCodeService
 }
