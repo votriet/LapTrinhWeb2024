@@ -40,8 +40,8 @@ class HomeHeader extends Component {
                                     <div className='subs-title'><FormattedMessage id="homeheader.select-doctor" /></div>
                                 </div>
                                 <div className='child-content'>
-                                    <div><b><FormattedMessage id="homeheader.fee" /></b></div>
-                                    <div className='subs-title'><FormattedMessage id="homeheader.check-health" /></div>
+                                   <a href='/system/user-manage' className='admin'> <div><b><FormattedMessage id="homeheader.fee" /></b></div>
+                                   <div className='subs-title'><FormattedMessage id="homeheader.check-health" /></div></a>
                                 </div>
                             </div>
                             <div className='right-content'>
