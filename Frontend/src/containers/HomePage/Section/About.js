@@ -16,10 +16,10 @@ class About extends Component {
                         <iframe width="100%" height="400px"
                             src="https://www.youtube.com/embed/xg0hNDgqurM"
                             title="PHÙNG KHÁNH LINH - ƯỚC ANH TAN NÁT CON TIM (OFFICIAL VISUALIZER)"
-                            frameborder="0"
+                            frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen></iframe>
+                            allowFullScreen>
+                        </iframe>
                     </div>
 
                     <div className='content-right'>
