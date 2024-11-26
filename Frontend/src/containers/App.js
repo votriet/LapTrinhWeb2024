@@ -45,7 +45,7 @@ class App extends Component {
             <Fragment>
                 <Router history={history}>
                     <div className="main-container">
-                       {/* // <ConfirmModal /> */}
+                        {/* // <ConfirmModal /> */}
                         {/* {this.props.isLoggedIn && <Header />} */}
 
                         <div className="content-container">
@@ -55,7 +55,7 @@ class App extends Component {
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                     <Route path={path.HOMEPAGE} component={HomePage} />
-                                    
+
                                     {/* <Route path={'/doctor/'} component={userIsAuthenticated(Doctor)} />
                                      */}
                                     {/* <Route path={path.HOMEPAGE} component={HomePage} />
@@ -69,11 +69,33 @@ class App extends Component {
                             </CustomScrollbars>
                         </div>
 
-                        <ToastContainer
+                        {/* <ToastContainer
                             className="toast-container" toastClassName="toast-item" bodyClassName="toast-item-body"
                             autoClose={false} hideProgressBar={true} pauseOnHover={false}
                             pauseOnFocusLoss={true} closeOnClick={false} draggable={false}
                             closeButton={<CustomToastCloseButton />}
+                        /> */}
+
+
+                        <ToastContainer
+
+                            position="bottom-right"
+
+                            autoClose={2000}
+
+                            hideProgressBar={false}
+
+                            newestOnTop={false}
+
+                            closeOnclick
+
+                            rtl={false}
+
+                            pauseOnFocusLoss
+
+                            draggable
+
+                            pauseOnHover
                         />
                     </div>
                 </Router>

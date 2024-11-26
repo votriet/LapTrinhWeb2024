@@ -133,7 +133,7 @@ let createNewUser = (data) => {
                     firstName: data.firstName,
                     lastName: data.lastName,
                     address: data.address,
-                    phoneNumber: data.phonenumber,
+                    phoneNumber: data.phoneNumber,
                     gender: data.gender,
                     roleId: data.roleId,
                     positionId: data.positionId,
