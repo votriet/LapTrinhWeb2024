@@ -53,9 +53,10 @@ class TableManageUser extends Component {
 
     }
 
-    // handleEditUser = (user) => {
-    //     this.props.handleEditUserFromParentKey(user)
-    // }
+    handleEditUser = (user) => {
+        console.log('user edit: ', user);
+        this.props.handleEditUserFromParentKey(user)        
+    }
     render() {
         console.log('check all user;', this.props.listUsers);
         console.log('check all user de;', this.state.usersRedux);
@@ -87,7 +88,7 @@ class TableManageUser extends Component {
                     {/* <td>{item.phoneNumber}</td> */}
                     <td>
                         <button
-                           // onClick={() => this.handleEditUser(item)}
+                           onClick={() => this.handleEditUser(item)}
                             className="btn-edit" ><i className="fas fa-pencil-alt"></i></button>
                         <button
                             onClick={() => this.handleDeleteUser(item)}
