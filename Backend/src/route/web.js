@@ -1,7 +1,7 @@
 import express from "express";
 import homeController from "../controllers/homeController";
 import userController from "../controllers/userController";
-// import doctorController from "../controllers/doctorController"
+import doctorController from "../controllers/doctorController"
 // import patientController from "../controllers/patientController"
 // import specialtyController from "../controllers/specialtyController";
 // import clinicController from "../controllers/clinicController";
@@ -27,7 +27,7 @@ let initWebRoutes = (app) => {
 
     router.get('/api/allcode', userController.getAllCode);
 
-    // router.get('/api/top-doctor-home', doctorController.getTopDoctorHome);
+    router.get('/api/top-doctor-home', doctorController.getTopDoctorHome);
     // router.get('/api/get-all-doctors', doctorController.getAllDoctors);
     // router.post('/api/save-infor-doctors', doctorController.postInforDoctor);
     // router.get('/api/get-detail-doctor-by-id', doctorController.getDetailDoctorById);
