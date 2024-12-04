@@ -30,6 +30,7 @@ let initWebRoutes = (app) => {
     router.get('/api/top-doctor-home', doctorController.getTopDoctorHome);
     router.get('/api/get-all-doctors', doctorController.getAllDoctors);
     router.post('/api/save-infor-doctors', doctorController.postInforDoctor);
+    router.get('/api/get-detail-doctor-by-id', doctorController.getDetailDoctorById);
 
     //api dùng để giao tiếp giữ be và fe
     //json là 1 object .trong mỗi object có key và value riêng cách nhau với nhau {}
