@@ -45,21 +45,17 @@ class ManageDoctor extends Component {
         let { language } = this.props;
         if (inputData && inputData.length > 0) {
             inputData.map((item, index) => {
-                
+
                 let object = {};
 
-                let labelVi =  `${item.lastName} ${item.firstName}`;
-                let labelEn =  `${item.firstName} ${item.lastName}`;
+                let labelVi = `${item.lastName} ${item.firstName}`;
+                let labelEn = `${item.firstName} ${item.lastName}`;
 
                 object.label = language === LANGUAGES.VI ? labelVi : labelEn;
                 object.value = item.id;
                 result.push(object)
             })
-
-
         }
-
-
         return result;
     }
 
@@ -73,12 +69,12 @@ class ManageDoctor extends Component {
         }
 
         if (prevProps.language !== this.props.language) {
-            
+
             let dataSelect = this.buildDataInputSelect(this.props.allDoctors,);
-            
+
             this.setState({
                 listDoctors: dataSelect,
-              
+
 
             })
 
@@ -89,13 +85,9 @@ class ManageDoctor extends Component {
         this.setState({
             contentMarkdown: text,
             contentHTML: html,
-
-
-        }
-
-        )
-
+        })
     }
+    
     handlSaveContentMarkdown = () => {
         this.props.saveDetailDoctor({
             contentHTML: this.state.contentHTML,
@@ -104,9 +96,9 @@ class ManageDoctor extends Component {
             doctorId: this.state.selectedOption.value,
         })
     }
+
     handleChange = selectedOption => {
         this.setState({ selectedOption });
-
 
     }
 
@@ -114,15 +106,11 @@ class ManageDoctor extends Component {
         this.setState({
             description: event.target.value
         });
-
     }
-
-
 
     render() {
 
-        console.log('cgfg',this.state)
-
+        console.log('cgfg', this.state)
 
         return (
 
@@ -134,7 +122,6 @@ class ManageDoctor extends Component {
                 <div className="more-infor">
                     <div className=" content-left form-group">
 
-
                         <label>
                             Chọn bác sĩ
                             {/* <FormattedMessage id="admin.manage-doctor.select-doctor"/> */}
@@ -144,12 +131,11 @@ class ManageDoctor extends Component {
                             onChange={this.handleChange}
                             options={this.state.listDoctors}
                         //placeholder={<FormattedMessage id="admin.manage-doctor.select-doctor"/>}
-
                         />
 
                     </div>
                     <div className="content-right">
-                        <label>thông tin giới thiệu</label>
+                        <label>Thông tin giới thiệu</label>
                         <textarea className="form-control" rows="4"
                             onChange={(event) => this.handleOnChangeDesc(event)}
                             value={this.state.description}
@@ -157,9 +143,6 @@ class ManageDoctor extends Component {
                             adsds
                         </textarea>
                     </div>
-
-
-
 
                 </div>
 
@@ -169,15 +152,14 @@ class ManageDoctor extends Component {
                         style={{ height: '300px' }}
                         renderHTML={text => mdParser.render(text)}
                         onChange={this.handleEditorChange}
-
                     />
                 </div>
 
 
                 <button
                     onClick={() => this.handlSaveContentMarkdown()}
-                    className= "save-content-doctor">
-                     Lưu thông tin
+                    className="save-content-doctor">
+                    Lưu thông tin
                 </button>
             </div>
         );
@@ -195,7 +177,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-       // fetchUserRedux: () => dispatch(actions.fetchAllUsersStart()),
+        // fetchUserRedux: () => dispatch(actions.fetchAllUsersStart()),
         fetchAllDoctors: () => dispatch(actions.fetchAllDoctors()),
         // getAllRequiredDoctorInfor: () => dispatch(actions.getRequiredDoctorInfor()),
         saveDetailDoctor: (data) => dispatch(actions.saveDetailDoctor(data))
