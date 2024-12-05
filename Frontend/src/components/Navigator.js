@@ -2,11 +2,13 @@ import React, { Component, Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
+import logo from '../assets/logo-vareno.svg';
 
 import './Navigator.scss';
 
 class MenuGroup extends Component {
 
+   
     render() {
         const { name, children } = this.props;
         return (
@@ -183,11 +185,18 @@ class Navigator extends Component {
             this.checkActiveMenu();
         };
     };
+    
+    returnToHome = () => {
+        if (this.props.history) {
+            this.props.history.push(`/home`)
+        }
+    }
 
     render() {
         const { menus, location, onLinkClick } = this.props;
         return (
             <Fragment>
+                <img className='header-logo' src={logo} onClick={() => this.returnToHome()}/>
                 <ul className="navigator-menu list-unstyled">
                     {
                         menus.map((group, groupIndex) => {

@@ -119,4 +119,15 @@
             }
         }
     }
+
+}
+
+//
+.header-tabs-container {
+    display: inline-flex;
+
+    .header-logo {
+        cursor: pointer;
+        width: 15%;
+    }
 }
