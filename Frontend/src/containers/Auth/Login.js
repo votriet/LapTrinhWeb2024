@@ -41,7 +41,7 @@ class Login extends Component {
       }
       if (data && data.errCode === 0) {
         this.props.userLoginSuccess(data.user)
-       
+
       }
 
     } catch (error) {
@@ -52,7 +52,7 @@ class Login extends Component {
           })
         }
       }
-      
+
 
     }
 
@@ -91,11 +91,13 @@ class Login extends Component {
     })
   }
 
-  // handleKeyDown = (event) => {
-  //   if (event.key === 'Enter') {
-  //     this.handleLogin();
-  //   }
-  // }
+  handleKeyDown = (event) => {
+    // if (event.key === 'Enter') {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+
+      this.handleLogin();
+    }
+  }
 
   render() {
     return (
@@ -119,7 +121,7 @@ class Login extends Component {
                   type={this.state.isShowPassword ? 'text' : 'password'}
                   placeholder="Enter your password"
                   onChange={(event) => this.handleOnChangePassword(event)}
-                //onKeyDown={(event) => this.handleKeyDown(event)}
+                  onKeyDown={(event) => this.handleKeyDown(event)}
 
                 />
                 <span onClick={() => { this.handleShowHidePassword() }} >

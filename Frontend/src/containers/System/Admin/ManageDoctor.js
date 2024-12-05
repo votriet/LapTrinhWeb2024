@@ -109,16 +109,12 @@ class ManageDoctor extends Component {
         if (res && res.errCode === 0 && res.data && res.data.Markdown) {
             let markdown = res.data.Markdown;
             
-            
-            
-            
             this.setState({
                 contentHTML: markdown.contentHTML,
                 contentMarkdown: markdown.contentMarkdown,
                 description: markdown.description,
                 hasOldData: true,
-               
-                
+                  
             })
         } else {
             this.setState({
@@ -130,7 +126,6 @@ class ManageDoctor extends Component {
             })
         }
        // console.log('test', res)
-
     };
 
     handleOnChangeDesc = (event) => {
