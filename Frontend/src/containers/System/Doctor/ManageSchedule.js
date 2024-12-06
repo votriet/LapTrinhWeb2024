@@ -9,8 +9,7 @@ import DatePicker from '../../../components/Input/DatePicker';
 import moment from 'moment';
 import { toast } from "react-toastify";
 import _ from 'lodash';
-
-
+import { saveBulkScheduleDoctor } from '../../../services/userService';
 class ManageSchedule extends Component {
     constructor(props) {
         super(props);
@@ -99,7 +98,7 @@ class ManageSchedule extends Component {
             })
         }
     }
-    handleSaveSchedule = () => {
+    handleSaveSchedule = async() => {
         let { rangeTime, selectedDoctor, currentDate } = this.state;
         // console.log("check state: ", this.state);
         let result = [];
@@ -113,15 +112,20 @@ class ManageSchedule extends Component {
             return;
 
         }
-        let formatDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
-        if (rangeTime && rangeTime.length > 0) {
-            let selectedTime = rangeTime.filter(item => item.isSelected === true)
+
+       // let formatDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
+       let formatedDate = new Date(currentDate).getTime();
+
+
+       
+       if (rangeTime && rangeTime.length > 0) {
+            let selectedTime = rangeTime.filter(item => item.isSelected === true);
             if (selectedTime && selectedTime.length > 0) {
                 selectedTime.map(schedule => {
                     let object = {};
                     object.doctorId = selectedDoctor.value;
-                    object.date = formatDate;
-                    object.time = schedule.keyMap;
+                    object.date = formatedDate;
+                    object.timeType = schedule.keyMap;
                     result.push(object);
                     
                 })
@@ -130,9 +134,22 @@ class ManageSchedule extends Component {
                 return;
             }
 
-            console.log("check result: ", result);
+           // console.log("check result: ", result);
 
         }
+        let res = await saveBulkScheduleDoctor({
+            arrSchedule: result,
+            doctorId: selectedDoctor.value,
+            formatedDate: formatedDate
+        })
+
+        // if (res && res.errCode === 0) {
+        //     toast.success("Save infor succeed!");
+        // } else {
+           // toast.error("error saveBulkScheduleDoctor ");
+            console.log('error saveBulkScheduleDoctor >>> res: ', res);
+            console.log("check result: ", result);
+       //}
     }
 
     render() {
