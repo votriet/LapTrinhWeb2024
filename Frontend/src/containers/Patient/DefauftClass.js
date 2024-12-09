@@ -6,27 +6,25 @@ class DefauftClass extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {  
-           
+        this.state = {
+
         }
     }
     async componentDidMount() {
-       
+
     }
     async componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.props.language !== prevProps.language) {
-           
+
         }
-    } 
-    
- 
+    }
+
     render() {
 
-     
-       return (
-           <div>
+        return (
+            <div>
 
-           </div>
+            </div>
         );
     }
 }
