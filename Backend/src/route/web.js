@@ -33,6 +33,7 @@ let initWebRoutes = (app) => {
     router.get('/api/get-detail-doctor-by-id', doctorController.getDetailDoctorById);
     router.post('/api/bulk-create-schedule', doctorController.bulkCreateSchedule);
     router.get('/api/get-schedule-doctor-by-date', doctorController.getScheduleByDate);
+    router.get('/api/get-extra-infor-doctor-by-id', doctorController.getExtraInforDoctorById);
     //api dùng để giao tiếp giữ be và fe
     //json là 1 object .trong mỗi object có key và value riêng cách nhau với nhau {}
     // dùng json để chuyển đổi dữ liệu .form chình thông để chuyển đổi là form object .ko phải khai báo class

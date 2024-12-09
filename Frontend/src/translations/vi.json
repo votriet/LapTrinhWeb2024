@@ -73,6 +73,13 @@
             "choose": "Chọn ",
             "book-free": " và đặt (miễn phí)",
             "more-infor": "Xem thêm"
+        },
+        "extra-infor-doctor":{
+            "text-address":"ĐIA CHỈ PHÒNG KHÁM",
+            "price":"GIÁ KHÁM",
+            "detail":"Xem chi tiết",
+            "payment":"Người bệnh có thể thanh toán bằng: ",
+            "hide-price":"Ẩn bảng giá"
         }
     },
     "admin":{
