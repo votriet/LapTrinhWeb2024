@@ -2,7 +2,7 @@ import express from "express";
 import homeController from "../controllers/homeController";
 import userController from "../controllers/userController";
 import doctorController from "../controllers/doctorController"
-// import patientController from "../controllers/patientController"
+import patientController from "../controllers/patientController"
 // import specialtyController from "../controllers/specialtyController";
 // import clinicController from "../controllers/clinicController";
 //import searchController from "../controllers/searchController";
@@ -34,6 +34,9 @@ let initWebRoutes = (app) => {
     router.post('/api/bulk-create-schedule', doctorController.bulkCreateSchedule);
     router.get('/api/get-schedule-doctor-by-date', doctorController.getScheduleByDate);
     router.get('/api/get-extra-infor-doctor-by-id', doctorController.getExtraInforDoctorById);
+    router.get('/api/get-profile-doctor-by-id', doctorController.getProfileDoctorById);
+    
+    router.post('/api/patient-book-appointment', patientController.postBookAppoinment);
     //api dùng để giao tiếp giữ be và fe
     //json là 1 object .trong mỗi object có key và value riêng cách nhau với nhau {}
     // dùng json để chuyển đổi dữ liệu .form chình thông để chuyển đổi là form object .ko phải khai báo class
