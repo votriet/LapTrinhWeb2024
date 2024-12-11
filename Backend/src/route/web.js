@@ -3,7 +3,7 @@ import homeController from "../controllers/homeController";
 import userController from "../controllers/userController";
 import doctorController from "../controllers/doctorController"
 import patientController from "../controllers/patientController"
-// import specialtyController from "../controllers/specialtyController";
+import specialtyController from "../controllers/specialtyController";
 // import clinicController from "../controllers/clinicController";
 //import searchController from "../controllers/searchController";
 
@@ -37,6 +37,10 @@ let initWebRoutes = (app) => {
     router.get('/api/get-profile-doctor-by-id', doctorController.getProfileDoctorById);
     
     router.post('/api/patient-book-appointment', patientController.postBookAppoinment);
+    router.post('/api/verify-book-appointment', patientController.postVerifyBookAppoinment);
+
+
+    router.post('/api/create-new-specialty', specialtyController.createSpecialty);
     //api dùng để giao tiếp giữ be và fe
     //json là 1 object .trong mỗi object có key và value riêng cách nhau với nhau {}
     // dùng json để chuyển đổi dữ liệu .form chình thông để chuyển đổi là form object .ko phải khai báo class
