@@ -31,16 +31,16 @@ class OutStandingDoctor extends Component {
     }
 
     handleViewDetailDoctor = (doctor) => {
-       if(this.props.history){
-        this.props.history.push(`/detail-doctor/${doctor.id}`)
-       }
+        if (this.props.history) {
+            this.props.history.push(`/detail-doctor/${doctor.id}`)
+        }
     }
     render() {
 
         let arrDoctors = this.state.arrDoctors;
         let { language } = this.props;
         // arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors)
-       // console.log('check', arrDoctors);
+        // console.log('check', arrDoctors);
 
         return (
             <div className='section-share section-outstanding-doctor'>
@@ -67,7 +67,10 @@ class OutStandingDoctor extends Component {
                                     let nameEn = `${item.positionData.valueEn},  ${item.lastName} ${item.firstName} `;
 
                                     return (
-                                        <div className='section-customize' key={index}onClick={() => this.handleViewDetailDoctor(item)}>
+                                        <div className='section-customize'
+                                            key={index}
+                                            onClick={() => this.handleViewDetailDoctor(item)}
+                                        >
                                             <div className='customize-border'>
                                                 <div className='outer-bg'>
                                                     <div className='bg-image section-outstanding-doctor'
