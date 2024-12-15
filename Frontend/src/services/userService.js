@@ -34,19 +34,15 @@ const editUserService = (inputData) => {
 const getAllCodeService = (inputType) => {
   return axios.get(`/api/allcode?type=${inputType}`)
 }
-
 const getTopDoctorHomeService = (limit) => {
   return axios.get(`/api/top-doctor-home?limit=${limit}`)
 }
 const getAllDoctors = () => {
   return axios.get(`/api/get-all-doctors`)
 }
-
 const saveDetailDoctorService = (data) => {
   return axios.post('/api/save-infor-doctors', data)
-
 }
-
 const getDetailInforDoctor = (inputId) => {
   return axios.get(`/api/get-detail-doctor-by-id?id=${inputId}`)
 }
@@ -71,6 +67,9 @@ const postVerifyBookAppoinment = (data) => {
 const createNewSpecialty = (data) => {
   return axios.post('/api/create-new-specialty', data)
 }
+const getAllSpecialty = () => {
+  return axios.get(`/api/get-specialty`)
+}
 export {
   handleLoginApi,
   getAllUsers,
@@ -88,5 +87,6 @@ export {
   getProfileDoctorById,
   postPatientBookAppointment,
   postVerifyBookAppoinment,
-  createNewSpecialty
+  createNewSpecialty,
+  getAllSpecialty
 }
