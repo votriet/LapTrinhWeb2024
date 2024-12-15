@@ -1,4 +1,3 @@
-const { reject } = require("lodash")
 const db = require("../models")
 
 let createSpecialty = (data) => {
@@ -31,11 +30,32 @@ let createSpecialty = (data) => {
     })
 }
 
+let getAllSpecialty = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let data = await db.Specialty.findAll({
+               
+            });
+            if (data && data.length > 0) {
+                data.map(item => {
+                    item.image = new Buffer(item.image, 'base64').toString('binary');
+                    return item;
+                })
+            }
 
+            resolve({
+                errCode: 0,
+                errMessage: 'OK',
+                data
+            })
 
-
+        } catch (e) {
+            reject(e)
+        }
+    })
+}
 
 module.exports = {
     createSpecialty: createSpecialty,
-   
+    getAllSpecialty: getAllSpecialty
 }
