@@ -41,6 +41,8 @@ let initWebRoutes = (app) => {
 
     router.post('/api/create-new-specialty', specialtyController.createSpecialty);
     router.get('/api/get-specialty', specialtyController.getAllSpecialty);
+    router.get('/api/get-detail-specialy-by-id', specialtyController.getDetailSpecialtyById);
+
     //api dùng để giao tiếp giữ be và fe
     //json là 1 object .trong mỗi object có key và value riêng cách nhau với nhau {}
     // dùng json để chuyển đổi dữ liệu .form chình thông để chuyển đổi là form object .ko phải khai báo class
