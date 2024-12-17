@@ -14,38 +14,38 @@ let createClinic = async (req, res) => {
     }
 }
 
-// let getAllClinic = async (req, res) => {
-//     try {
-//         let infor = await clinicService.getAllClinic();
-//         return res.status(200).json(
-//             infor
-//         )
-//     } catch (e) {
-//         console.log(e);
+let getAllClinic = async (req, res) => {
+    try {
+        let infor = await clinicService.getAllClinic();
+        return res.status(200).json(
+            infor
+        )
+    } catch (e) {
+        console.log(e);
         
-//         return res.status(200).json({
-//             errCode: -1,
-//             errMessage: 'Error fron the server'
-//         })
-//     }
-// }
-// let getDetailClinicById = async (req, res) => {
-//     try {
-//         let infor = await clinicService.getDetailClinicById(req.query.id, req.query.location);
-//         return res.status(200).json(infor)
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error fron the server'
+        })
+    }
+}
+let getDetailClinicById = async (req, res) => {
+    try {
+        let infor = await clinicService.getDetailClinicById(req.query.id, req.query.location);
+        return res.status(200).json(infor)
         
-//     } catch (e) {
-//         console.log(e)
-//         return res.status(200).json({
-//             errCode: -1,
-//             errMessage: ' Error from the server'
-//         })
+    } catch (e) {
+        console.log(e)
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: ' Error from the server'
+        })
         
-//     }
-// }
+    }
+}
 
 module.exports = {
     createClinic: createClinic,
-    // getAllClinic: getAllClinic,
-    // getDetailClinicById:getDetailClinicById
+    getAllClinic: getAllClinic,
+    getDetailClinicById:getDetailClinicById
 }
