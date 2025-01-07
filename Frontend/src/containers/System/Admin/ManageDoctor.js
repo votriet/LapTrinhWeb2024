@@ -342,11 +342,71 @@ class ManageDoctor extends Component {
                             onChange={(event) => this.handleOnChangeText(event, 'description')}
                             value={this.state.description}
                         >
-                            adsds
+                           
                         </textarea>
                     </div>
                     <div className="more-infor-extra row">
+                        {/* <div className="col-4 form-group">
+                            <label><FormattedMessage id="admin.manage-doctor.price" /></label>
+                            <Select
+                                value={this.state.selectedPrice}
+                                onChange={this.handleChangSelectDoctorInfor}
+                                options={this.state.listPrice}
+                                placeholder={<FormattedMessage id="admin.manage-doctor.price" />}
+                                name="selectedPrice"
+                            />
+                        </div>
                         <div className="col-4 form-group">
+                            <label><FormattedMessage id="admin.manage-doctor.payment" /></label>
+                            <Select
+                                value={this.state.selectedPayment}
+                                onChange={this.handleChangSelectDoctorInfor}
+                                options={this.state.listPayment}
+                                placeholder={<FormattedMessage id="admin.manage-doctor.payment" />}
+                                name="selectedPayment"
+                            />
+                        </div>
+                        <div className="col-4 form-group">
+                            <label><FormattedMessage id="admin.manage-doctor.province" /></label>
+                            <Select
+                                value={this.state.selectedProvince}
+                                onChange={this.handleChangSelectDoctorInfor}
+                                options={this.state.listProvince}
+                                placeholder={<FormattedMessage id="admin.manage-doctor.province" />}
+                                name="selectedProvince"
+
+                            />
+                        </div>
+                        <div className="col-4 form-group">
+                            <label><FormattedMessage id="admin.manage-doctor.nameClinic" /></label>
+                            <input className="form-control"
+                                onChange={(event) => this.handleOnChangeText(event, 'nameClinic')}
+                                value={this.state.nameClinic}
+                            />
+
+                        </div>
+                        <div className="col-4 form-group">
+                            <label><FormattedMessage id="admin.manage-doctor.addressClinic" /></label>
+
+                            <input className="form-control"
+                                onChange={(event) => this.handleOnChangeText(event, 'addressClinic')}
+                                value={this.state.addressClinic}
+                            />
+
+                        </div>
+                        <div className="col-4 form-group">
+                            <label><FormattedMessage id="admin.manage-doctor.note" /></label>
+                            <input className="form-control"
+                                onChange={(event) => this.handleOnChangeText(event, 'note')}
+                                value={this.state.note}
+                            />
+                        </div> */}
+                    </div>
+
+                </div>
+
+                <div className='row'>
+                <div className="col-4 form-group">
                             <label><FormattedMessage id="admin.manage-doctor.price" /></label>
                             <Select
                                 value={this.state.selectedPrice}
@@ -401,11 +461,6 @@ class ManageDoctor extends Component {
                                 value={this.state.note}
                             />
                         </div>
-                    </div>
-
-                </div>
-
-                <div className='row'>
                     <div className='col-4 form-group'>
                         <label>
                             <FormattedMessage id="admin.manage-doctor.specialty" />

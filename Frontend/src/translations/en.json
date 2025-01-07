@@ -94,7 +94,8 @@
             "confirm":"Confirm",
             "cancel":"Cancel",
             "price":"Price : ",
-            "freeappointment":"Free appointment"
+            "freeappointment":"Free appointment",
+            "birthday":"Date of birth"
 
             
         },

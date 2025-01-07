@@ -141,6 +141,18 @@ let sendRemedy = async (req, res) => {
     }
 
 }
+export const apiSearch =(firstName)=> new Promise(async(resolveContent,reject)=>{
+    try {
+        const response =await axios({
+            url :'/search',
+            method:'get',
+            params:{firstName}
+        })
+    } catch (error) {
+        reject(error)
+        
+    }
+})
 module.exports = {
     getTopDoctorHome: getTopDoctorHome,
     getAllDoctors: getAllDoctors,
